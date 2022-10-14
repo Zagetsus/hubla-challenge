@@ -4,16 +4,16 @@ const lightTheme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 650,
+      sm: 361,
       md: 768,
-      lg: 1285,
-      xl: 1980
+      lg: 1000,
+      xl: 1440
     }
   },
   palette: {
     mode: 'light',
     primary: {
-      main: '#0A4182',
+      main: '#FF6D04',
       light: '#0A59B6',
       '400': '#009EFF',
       '600': '#0076B8',
@@ -61,12 +61,12 @@ const lightTheme = createTheme({
     }
   },
   typography: {
-    fontFamily: '"Cabin", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Lato", "Helvetica", "Arial", sans-serif',
     body1: {
-      fontFamily: '"Cabin", "Helvetica", "Arial", sans-serif'
+      fontFamily: '"Lato", "Helvetica", "Arial", sans-serif'
     },
     body2: {
-      fontFamily: '"Cabin", "Helvetica", "Arial", sans-serif'
+      fontFamily: '"Lato", "Helvetica", "Arial", sans-serif'
     }
   },
   components: {
@@ -77,7 +77,7 @@ const lightTheme = createTheme({
           color: '#FFFFFF',
           fontWeight: 500,
           lineHeight: '1.4rem',
-          backgroundColor: '#0A4182',
+          backgroundColor: '#FF6D04',
           padding: '0.551rem 0.813rem',
           textTransform: 'none',
           boxShadow: 'none',
@@ -87,7 +87,7 @@ const lightTheme = createTheme({
             fill: '#FFFFFF'
           },
           '&:hover': {
-            backgroundColor: '#0A59B6',
+            backgroundColor: '#FF6D04',
             boxShadow: 'none'
           },
           '&:disabled': {
@@ -108,14 +108,14 @@ const lightTheme = createTheme({
           props: { variant: 'text' },
           style: {
             fontSize: '1rem',
-            color: '#0A4182',
+            color: '#FF6D04',
             textDecoration: 'underline',
             backgroundColor: 'transparent',
             padding: '0rem',
             lineHeight: '1.25rem',
             fontWeight: 500,
             '&:hover': {
-              color: '#0A59B6',
+              color: '#FF6D04',
               textDecoration: 'underline',
               backgroundColor: 'transparent'
             },

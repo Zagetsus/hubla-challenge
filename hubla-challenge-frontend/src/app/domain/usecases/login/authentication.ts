@@ -18,8 +18,5 @@ export namespace Authentication {
     name: string;
     email: string;
     phone: string;
-    permission: string;
-    companyName: string | null;
-    employee: boolean;
   }
 }
