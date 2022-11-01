@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { LoginComponentProps } from '~/app/domain/protocols/login/login-props.type';
+import { LoginComponentProps } from '~/app/domain/protocols';
 import { LoginTag } from '~/app/presentation/pages';
 
 const makeSut = (): void => {

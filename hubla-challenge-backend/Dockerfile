@@ -1,13 +1,52 @@
-FROM node:17.3.0
+#####################################
+# BUILD FOR LOCAL DEVELOPMENT
+#####################################
 
-WORKDIR /app
+FROM node:18 As development
 
-COPY ./package*.json ./
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
-RUN npm install
+RUN apt-get update && apt-get install -y openssl
 
-COPY ./ ./
+WORKDIR /usr/src/app
 
-RUN npx @nestjs/cli build
+COPY --chown=node:node package*.json ./
 
-CMD ["node", "dist/main.js"]
+RUN yarn --network-timeout 100000
+
+COPY --chown=node:node . .
+
+RUN yarn prisma:generate
+
+USER node
+
+################################
+# BUILD FOR PRODUCTION
+################################
+
+FROM node:18-alpine As build
+
+WORKDIR /usr/src/app
+
+COPY --chown=node:node package*.json ./
+
+COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
+
+COPY --chown=node:node . .
+
+RUN yarn build
+
+ENV NODE_ENV production
+
+USER node
+
+#---------------------------------------------------------------------
+# PRODUCTION
+#---------------------------------------------------------------------
+
+FROM node:18-alpine As production
+
+COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
+COPY --chown=node:node --from=build /usr/src/app/dist ./dist
+
+CMD [ "node", "dist/main.js" ]

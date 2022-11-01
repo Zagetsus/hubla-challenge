@@ -14,14 +14,14 @@ const lightTheme = createTheme({
     mode: 'light',
     primary: {
       main: '#FF6D04',
-      light: '#0A59B6',
-      '400': '#009EFF',
-      '600': '#0076B8',
-      '700': '#006CA9',
-      '900': '#004064'
+      light: '#FF6D04',
+      '400': '#FF6D04',
+      '600': '#FF6D04',
+      '700': '#FF6D04',
+      '900': '#FF6D04'
     },
     secondary: {
-      main: '#A0DF90',
+      main: '#333333',
       contrastText: '#749D6A',
       dark: '#036A13',
       '300': '#29E321',
@@ -46,7 +46,7 @@ const lightTheme = createTheme({
     },
     success: {
       dark: '#036A13',
-      main: '#24CA5C',
+      main: '#2F8C0E',
       light: '#DBFFD2'
     },
     warning: {
@@ -56,7 +56,7 @@ const lightTheme = createTheme({
     },
     error: {
       dark: '#D00000',
-      main: '#EB6262',
+      main: '#D50000',
       light: '#FFDFDF'
     }
   },
@@ -77,8 +77,8 @@ const lightTheme = createTheme({
           color: '#FFFFFF',
           fontWeight: 500,
           lineHeight: '1.4rem',
-          backgroundColor: '#FF6D04',
-          padding: '0.551rem 0.813rem',
+          backgroundColor: '#333333',
+          padding: '0.8rem 0.813rem',
           textTransform: 'none',
           boxShadow: 'none',
           borderRadius: '0.25rem',
@@ -87,7 +87,7 @@ const lightTheme = createTheme({
             fill: '#FFFFFF'
           },
           '&:hover': {
-            backgroundColor: '#FF6D04',
+            backgroundColor: '#333333',
             boxShadow: 'none'
           },
           '&:disabled': {
@@ -117,6 +117,33 @@ const lightTheme = createTheme({
             '&:hover': {
               color: '#FF6D04',
               textDecoration: 'underline',
+              backgroundColor: 'transparent'
+            },
+            '&:disabled': {
+              color: '#CECECE',
+              textDecoration: 'none',
+              backgroundColor: 'transparent'
+            },
+            '&:focus-visible': {
+              border: '0.0625rem solid #3F0B6D',
+              backgroundColor: 'transparent',
+              borderRadius: '0.25rem',
+              boxShadow: 'none'
+            }
+          }
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            fontSize: '1rem',
+            color: '#333333',
+            borderColor: '#333333',
+            backgroundColor: 'transparent',
+            lineHeight: '1.25rem',
+            fontWeight: 500,
+            '&:hover': {
+              color: '#333333',
+              borderColor: '#333333',
               backgroundColor: 'transparent'
             },
             '&:disabled': {

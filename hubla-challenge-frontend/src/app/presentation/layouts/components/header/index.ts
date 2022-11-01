@@ -1,1 +1,1 @@
-export { default as HeaderTag } from './header'
+export { default as HeaderTag } from './header';

@@ -14,7 +14,7 @@ export const enableSwagger = (app: INestApplication, path = 'api') => {
   const swaggerDocumentBuilder = new DocumentBuilder()
     .addBearerAuth()
     .setTitle(APP_CONTAINER_NAME)
-    .setDescription('This is our API')
+    .setDescription(`Hubla's financial control system backend documentation`)
     .setVersion(`${APP_VERSION_PREFIX}.${APP_VERSION}`)
     .setContact('Luan Verdelho', '', 'luanverdelho642@gmail.com')
     .build();

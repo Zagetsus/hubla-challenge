@@ -1,1 +1,1 @@
-export { default as LoginTag } from './login'
+export { default as LoginTag } from './login';

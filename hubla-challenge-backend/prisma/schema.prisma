@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
 }
 
 datasource db {
@@ -10,3 +11,86 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserTypeEnum {
+  ADMIN
+  TEACHER
+  PRODUCER
+  AFFILIATE
+}
+
+enum NatureTransactionEnum {
+  ENTRY
+  OUTPUT
+}
+
+model User {
+  id String @id @default(uuid())
+  name String? @db.VarChar(100)
+  email String? @db.VarChar(255) @unique
+  password String? @db.VarChar(255)
+  imageUrl String? @db.VarChar(255) @map("image_url")
+  userType UserTypeEnum @map("user_type")
+
+  sellersExtract Extract[] @relation("extract_seller")
+  creatorsExtract Extract[] @relation("extract_creator")
+  products Product[]
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("users")
+}
+
+model TypeTransaction {
+  id String @id @default(uuid())
+  type Int @unique
+  description String @db.VarChar(50)
+  nature NatureTransactionEnum
+
+  extracts Extract[]
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("types_transactions")
+}
+
+model Product {
+  id String @id @default(uuid())
+  name String @unique
+  teacherId String @map("teacher_id")
+  teacher User @relation(fields: [teacherId], references: [id])
+  thumbnail String? @db.VarChar(255)
+  duration Int
+
+  extracts Extract[]
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("products")
+}
+
+model Extract {
+  id String @id @default(uuid())
+
+  transactionTypeId String @map("transaction_type_id")
+  sellerId String @map("seller_id")
+  creatorId String @map("creator_id")
+  productId String @map("product_id")
+  price Decimal @db.Decimal(10,2)
+
+  createdAt DateTime? @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  transactionType TypeTransaction @relation(fields: [transactionTypeId], references: [id])
+  seller User @relation("extract_seller", fields: [sellerId], references: [id])
+  creator User @relation("extract_creator", fields: [creatorId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("extracts")
+}

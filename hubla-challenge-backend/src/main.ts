@@ -3,8 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import { AppLogger } from './app.logger';
-import { AppModule } from './app.module';
+import { AppLogger } from '~/app.logger';
+import { AppModule } from '~/app.module';
 import { APP_PORT, APP_VERSION, APP_VERSION_PREFIX } from './app.vars';
 import { DefaultExceptionsFilter } from './config';
 import { enableCors } from './cors.service';
@@ -39,10 +39,7 @@ function bootstrap() {
       const port = (process.env.PORT ?? APP_PORT) as number;
 
       await app.listen(port, () => {
-        Logger.verbose(
-          `hubla listing at http://localhost:${port}️`,
-          'Main'
-        );
+        Logger.verbose(`hubla listing at http://localhost:${port}️`, 'Main');
       });
     })
     .catch(error => Logger.error(error));

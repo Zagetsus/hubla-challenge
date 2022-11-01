@@ -17,7 +17,7 @@ export default function handleSSRGuest<P>(fn: GetServerSideProps<P>) {
     if (cookie) {
       return {
         redirect: {
-          destination: '/dashboard',
+          destination: '/financeiro/extrato',
           permanent: false
         }
       };

@@ -1,1 +1,1 @@
-export { default as UnauthenticatedHeaderTag } from './unauthenticated-header'
+export { default as UnauthenticatedHeaderTag } from './unauthenticated-header';

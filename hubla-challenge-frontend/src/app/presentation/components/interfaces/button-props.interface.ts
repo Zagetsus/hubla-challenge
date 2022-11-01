@@ -10,4 +10,5 @@ export interface ButtonProps {
   disableRipple?: boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }
