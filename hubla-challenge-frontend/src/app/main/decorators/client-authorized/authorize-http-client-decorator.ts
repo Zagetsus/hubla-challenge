@@ -13,12 +13,12 @@ export class AuthorizeHttpClientDecorator implements HttpClient {
   ) {}
 
   async request(params: HttpRequestParams): Promise<HttpResponse> {
-    const token = this.serviceStorage.get(TOKEN_NAME);
+    const { token } = this.serviceStorage.get(TOKEN_NAME);
 
     if (token) {
       Object.assign(params, {
         headers: Object.assign(params.headers || {}, {
-          Authorization: `Bearer ${token as string}`
+          Authorization: `Bearer ${token.accessToken as string}`
         })
       });
     }

@@ -1,17 +1,21 @@
+import { changeToCurrency } from '~/app/infra/utils';
 import { Box, Typography } from '~/app/presentation/components';
 import { EntryIcon } from '~/app/presentation/components/icons';
 import { OutputIcon } from '~/app/presentation/components/icons/output';
-import { TransactionTag } from '~/app/presentation/pages/extract/components/extract-transactions/components/table/components';
+import {
+  TotalDateProps,
+  TransactionTag
+} from '~/app/presentation/pages/extract/components/extract-transactions/components/table/components';
 import makeStyles from './total-date-styles';
 
-function TotalDateComponent() {
+function TotalDateComponent({ data }: TotalDateProps) {
   const classes = makeStyles();
 
   return (
     <Box data-testid='total-date'>
       <Box className={classes.container}>
         <Box>
-          <Typography className={classes.textPrimary}>16/10/2022</Typography>
+          <Typography className={classes.textPrimary}>{data.date}</Typography>
         </Box>
         <Box className={classes.divider} />
         <Box>
@@ -25,7 +29,7 @@ function TotalDateComponent() {
             Entradas:
           </Typography>
           <Typography className={`${classes.textSecondary} entryValue`}>
-            +R$ 300,00
+            +R$ {changeToCurrency({ value: data.amounts.inbound })}
           </Typography>
         </Box>
         <Box className={classes.section}>
@@ -36,13 +40,13 @@ function TotalDateComponent() {
             Saídas:
           </Typography>
           <Typography className={`${classes.textSecondary} outputValue`}>
-            -R$ 25,00
+            -R$ {changeToCurrency({ value: data.amounts.outbound })}
           </Typography>
         </Box>
       </Box>
       <Box className={classes.transactions} data-testid='transactions'>
-        {[...Array(10).keys()].map((_, key) => (
-          <TransactionTag key={`transaction-${key}`} />
+        {data.transactions.map((transaction, key) => (
+          <TransactionTag data={transaction} key={`transaction-${key}`} />
         ))}
       </Box>
     </Box>

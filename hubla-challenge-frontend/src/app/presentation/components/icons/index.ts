@@ -11,6 +11,7 @@ export * from './filter';
 export * from './home';
 export * from './logo';
 export * from './logout';
+export * from './output';
 export * from './search';
 export * from './settings';
 export * from './transaction';

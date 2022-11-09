@@ -18,7 +18,7 @@ export class CookieAdapter implements SetStorage, GetStorage {
 
   get(key: string): any {
     const cookies = parseCookies(this.context);
-    const content = cookies[key];
+    const content = JSON.parse(cookies[key]);
     return content ? content : undefined;
   }
 }

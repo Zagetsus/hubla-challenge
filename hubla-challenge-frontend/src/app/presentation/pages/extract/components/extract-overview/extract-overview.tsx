@@ -7,6 +7,7 @@ import {
   Typography
 } from '~/app/presentation/components';
 import { EyeIcon, LogoIcon } from '~/app/presentation/components/icons';
+import { useExtractContext } from '~/app/presentation/hooks';
 import { ASTERISKS_x11 } from '~/config/vars';
 import makeStyles from './extract-overview-styles';
 
@@ -18,6 +19,12 @@ type AddCurrentFormatOrStringProps = {
 
 function ExtractOverviewComponent() {
   const classes = makeStyles();
+
+  const {
+    contextState: { balanceResponse }
+  } = useExtractContext();
+
+  const { entries, outputs } = balanceResponse;
 
   const [values, setValues] = useState({
     balanceAvailable: ASTERISKS_x11,
@@ -43,8 +50,8 @@ function ExtractOverviewComponent() {
     };
 
     const summaryValues = {
-      balanceAvailable: parseSummaryValue(200142),
-      balanceTotal: parseSummaryValue(27824304),
+      balanceAvailable: parseSummaryValue(entries),
+      balanceTotal: parseSummaryValue(outputs),
       isVisible: !values.isVisible
     };
 

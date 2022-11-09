@@ -9,11 +9,11 @@ export const changeToCurrency = ({
   currencyDisplay,
   style
 }: ChangeToCurrencyProps) => {
-  const intToDecimal = value / 100;
-  return intToDecimal.toLocaleString('pt-BR', {
+  const formatter = new Intl.NumberFormat('pt-BR', {
     style: style,
     currency: 'BRL',
-    minimumFractionDigits: 2,
     currencyDisplay: currencyDisplay
   });
+
+  return formatter.format(value);
 };

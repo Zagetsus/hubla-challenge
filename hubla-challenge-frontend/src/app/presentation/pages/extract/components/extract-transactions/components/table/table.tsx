@@ -1,4 +1,5 @@
 import { Box } from '~/app/presentation/components';
+import { useExtractContext } from '~/app/presentation/hooks';
 import {
   TableHeadTag,
   TotalDateTag
@@ -7,11 +8,13 @@ import makeStyles from './table-styles';
 
 function TableComponent() {
   const classes = makeStyles();
+  const { transactionsResponse } = useExtractContext();
+  console.log(transactionsResponse);
   return (
     <Box className={classes.container}>
       <TableHeadTag />
-      {[...Array(4).keys()].map((_, key) => (
-        <TotalDateTag key={`total-date-${key}`} />
+      {transactionsResponse.transactionsByDate.map((transactionByDate, key) => (
+        <TotalDateTag data={transactionByDate} key={`total-date-${key}`} />
       ))}
     </Box>
   );

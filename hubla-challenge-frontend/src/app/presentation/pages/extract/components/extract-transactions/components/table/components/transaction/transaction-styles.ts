@@ -46,10 +46,10 @@ export default makeStyles({
     width: '15.313rem',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
     padding: '0 0.75rem',
     '& .name': {
       fontWeight: 700,
+      textAlign: 'left',
       fontSize: '16px',
       lineHeight: '20px',
       letterSpacing: '0.25px',
@@ -88,6 +88,9 @@ export default makeStyles({
       fontSize: '16px',
       lineHeight: '20px',
       letterSpacing: '0.25px',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
 
       color: '#00072B'
     }
@@ -95,9 +98,8 @@ export default makeStyles({
   typeCell: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
     width: '8.75rem',
-    padding: '0 0.75rem',
+    padding: '0 0.5rem',
     '& p': {
       fontWeight: 400,
       fontSize: '14px',
@@ -111,14 +113,18 @@ export default makeStyles({
     width: '6.25rem',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
     '& p': {
       fontWeight: 700,
       fontSize: '16px',
       lineHeight: '20px',
       letterSpacing: '0.25px',
 
-      color: '#2F8C0E'
+      '&.ENTRY': {
+        color: '#2F8C0E'
+      },
+      '&.OUTPUT': {
+        color: '#D80027'
+      }
     }
   },
   actionCell: {
