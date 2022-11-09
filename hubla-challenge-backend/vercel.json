@@ -1,7 +1,6 @@
 {
   "version": 2,
   "env": {
-    "NODE_ENV": "@NODE_ENV",
     "APP_PORT": "@APP_PORT",
     "APP_DEBUG_PORT": "@APP_DEBUG_PORT",
     "APP_VERSION": "@APP_VERSION",
