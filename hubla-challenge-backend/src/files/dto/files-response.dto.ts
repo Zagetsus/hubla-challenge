@@ -33,7 +33,7 @@ export class FilesResponseDTO {
 
   @ApiProperty({
     type: Number,
-    description: 'Amount charged for the transaction.',
+    description: 'Amount charged for the row.',
     example: 127.5,
     required: true
   })

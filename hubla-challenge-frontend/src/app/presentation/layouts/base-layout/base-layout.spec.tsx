@@ -3,7 +3,7 @@ import { BaseLayoutTag } from '~/app/presentation/layouts';
 
 const makeSut = (): void => {
   render(
-    <BaseLayoutTag>
+    <BaseLayoutTag pageTitle={'test'}>
       <div />
     </BaseLayoutTag>
   );

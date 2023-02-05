@@ -6,3 +6,6 @@ start: ## Run server on debug mode
 
 bash: ## Run bash
 	docker exec -it $(APP_CONTAINER_NAME) /bin/bash
+
+down:
+	docker-compose down

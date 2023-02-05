@@ -1,12 +1,12 @@
 import { GetServerSidePropsContext } from 'next';
-import { RemoteLoadTransactions } from '~/app/application/usecases';
+import { RemoteLoadParsingFiles } from '~/app/application/usecases';
 import { makeAuthorizedHttpClientDecorator } from '~/app/main/factories/decorators';
 
-export const makeRemoteLoadTransactions = (
+export const makeRemoteLoadParsingFile = (
   context?: GetServerSidePropsContext
 ) => {
-  return new RemoteLoadTransactions(
-    '/v1/extracts/transactions-by-date',
+  return new RemoteLoadParsingFiles(
+    '/v1/files',
     makeAuthorizedHttpClientDecorator(context)
   );
 };

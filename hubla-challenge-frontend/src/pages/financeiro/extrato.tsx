@@ -12,8 +12,6 @@ export const getServerSideProps: GetServerSideProps = handleSSRAuth(
   async context => {
     const { p } = context.query;
 
-    console.log(p);
-
     const page = Number(p) || 1;
     const limit = 4;
 

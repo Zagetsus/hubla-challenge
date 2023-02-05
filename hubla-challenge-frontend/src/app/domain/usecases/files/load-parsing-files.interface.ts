@@ -1,8 +1,12 @@
 export interface LoadParsingFiles {
-  load: () => Promise<LoadParsingFiles.Response>;
+  load: (
+    params: LoadParsingFiles.params
+  ) => Promise<LoadParsingFiles.Response[]>;
 }
 
 export namespace LoadParsingFiles {
+  export type params = FormData;
+
   export type Errors = {
     property: string;
     message: string;
@@ -31,7 +35,7 @@ export namespace LoadParsingFiles {
   };
 
   export type Response = {
-    type: number;
+    type: 1 | 2 | 3 | 4;
     seller: string;
     product: string;
     price: number;

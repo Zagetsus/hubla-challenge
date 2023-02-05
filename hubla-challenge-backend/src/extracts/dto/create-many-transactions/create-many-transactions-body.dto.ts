@@ -16,7 +16,7 @@ export class CreateManyTransactionsBodyDTO {
 
   @ApiProperty({
     type: String,
-    description: 'Name of the seller responsible for the transaction.',
+    description: 'Name of the seller responsible for the row.',
     example: 'Jose Carlos',
     required: true
   })
@@ -36,7 +36,7 @@ export class CreateManyTransactionsBodyDTO {
 
   @ApiProperty({
     type: Number,
-    description: 'Product price on transaction.',
+    description: 'Product price on row.',
     example: 127.5,
     required: true
   })

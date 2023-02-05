@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { useState } from 'react';
 import { changeToCurrency } from '~/app/infra/utils';
 import {
@@ -28,8 +29,12 @@ function TransactionComponent({ data }: TransactionProps) {
     }
   };
 
-  const date = format(new Date(createdAt), 'dd/MM/yyyy');
-  const hours = format(new Date(createdAt), `hh'h':mm'm'`);
+  const date = format(new Date(createdAt), 'dd/MM/yyyy', {
+    locale: ptBR
+  });
+  const hours = format(new Date(createdAt), `hh'h':mm'm'`, {
+    locale: ptBR
+  });
 
   const classes = makeStyles();
   return (

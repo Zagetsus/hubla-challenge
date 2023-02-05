@@ -30,7 +30,7 @@ export class CreateManyTransactionsDataResponseDTO {
 
   @ApiProperty({
     type: Number,
-    description: 'Product price on transaction.',
+    description: 'Product price on row.',
     example: 127.5,
     required: true
   })

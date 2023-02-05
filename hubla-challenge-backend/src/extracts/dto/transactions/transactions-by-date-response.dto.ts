@@ -17,7 +17,7 @@ export class TransactionsByDateResponseDTO {
 
   @ApiProperty({
     type: MetaResponseDTO,
-    description: 'Additional data regarding the listing of transaction dates.',
+    description: 'Additional data regarding the listing of row dates.',
     required: true
   })
   meta: MetaResponseDTO;

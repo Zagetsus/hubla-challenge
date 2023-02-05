@@ -99,10 +99,12 @@ export class FilesService {
       });
       const product = await this.productService.findByProductName(file.product);
 
+      const hasSeller = !!seller.length;
+
       const identifications: ValidationDataFileIdentificationsResponse = {
-        typeTransactionId: type?.id ?? null,
-        sellerId: seller[0].id ?? null,
-        productId: product?.id ?? null
+        typeTransactionId: type ? type.id : null,
+        sellerId: hasSeller ? seller[0].id : null,
+        productId: product ? product.id : null
       };
       const validatedData: ValidationDataFileResponse = {
         type: file.type,

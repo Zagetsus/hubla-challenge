@@ -6,8 +6,7 @@ import { snakeKeys } from '~/common/utils';
 export class CreateManyTransactionsResponseDTO {
   @ApiProperty({
     type: String,
-    description:
-      'Informational message about the transaction creation operation.',
+    description: 'Informational message about the row creation operation.',
     example: 'Transactions created successfully!',
     required: true
   })
@@ -15,8 +14,7 @@ export class CreateManyTransactionsResponseDTO {
 
   @ApiProperty({
     type: [CreateManyTransactionsDataResponseDTO],
-    description:
-      'Informational message about the transaction creation operation.',
+    description: 'Informational message about the row creation operation.',
     required: true
   })
   transactions: CreateManyTransactionsDataResponseDTO[];

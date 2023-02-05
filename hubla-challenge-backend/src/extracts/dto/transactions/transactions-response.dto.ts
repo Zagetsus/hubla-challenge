@@ -5,7 +5,7 @@ import { Expose } from 'class-transformer';
 export class TransactionsResponseDTO {
   @ApiProperty({
     type: String,
-    description: 'Name of the product sold in the transaction.',
+    description: 'Name of the product sold in the row.',
     example: 'CURSO DE BEM-ESTAR',
     required: true
   })
@@ -31,7 +31,7 @@ export class TransactionsResponseDTO {
 
   @ApiProperty({
     type: String,
-    description: 'Description of transaction type.',
+    description: 'Description of row type.',
     example: 'Comissão recebida',
     required: true
   })
@@ -39,7 +39,7 @@ export class TransactionsResponseDTO {
 
   @ApiProperty({
     type: String,
-    description: 'Nature of transaction.',
+    description: 'Nature of row.',
     example: 'ENTRY',
     required: true
   })
@@ -56,7 +56,7 @@ export class TransactionsResponseDTO {
   @ApiProperty({
     name: 'created_at',
     type: Date,
-    description: 'Date the transaction took place.',
+    description: 'Date the row took place.',
     example: '2022-10-24T02:33:03.901Z',
     required: true
   })

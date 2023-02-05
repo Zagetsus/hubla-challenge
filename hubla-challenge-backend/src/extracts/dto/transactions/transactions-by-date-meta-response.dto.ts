@@ -4,7 +4,7 @@ import { Expose } from 'class-transformer';
 export class MetaResponseDTO {
   @ApiProperty({
     type: Number,
-    description: 'Total result of transaction dates.',
+    description: 'Total result of row dates.',
     example: 90,
     required: true
   })
@@ -13,7 +13,7 @@ export class MetaResponseDTO {
   @ApiProperty({
     name: 'current_page',
     type: Number,
-    description: 'Current page of transaction dates.',
+    description: 'Current page of row dates.',
     example: 1,
     required: true
   })
@@ -23,7 +23,7 @@ export class MetaResponseDTO {
   @ApiProperty({
     name: 'total_pages',
     type: Number,
-    description: 'Total pages of transaction dates.',
+    description: 'Total pages of row dates.',
     example: 23,
     required: true
   })

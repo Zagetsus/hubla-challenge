@@ -62,7 +62,7 @@ export class ExtractsService {
     });
 
     if (hasErrors) {
-      const errorLoggerMessage = 'Missing some transaction identifiers.';
+      const errorLoggerMessage = 'Missing some row identifiers.';
       const errorMessage = 'MISSING_TRANSACTION_IDENTIFIERS';
 
       this.logger.fail({
@@ -120,8 +120,8 @@ export class ExtractsService {
 
     for (const date of dates) {
       const dateFormatted = format(date.period, 'yyyy-MM-dd');
-      const dateFormattedStart = new Date(`${dateFormatted}T00:00:00`);
-      const dateFormattedEnd = new Date(`${dateFormatted}T23:59:59`);
+      const dateFormattedStart = new Date(`${dateFormatted}T00:00:00Z`);
+      const dateFormattedEnd = new Date(`${dateFormatted}T23:59:59Z`);
 
       const amountsByDate = await this.extractRepository.getTotalOfDay({
         startDate: dateFormattedStart,
