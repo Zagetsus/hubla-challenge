@@ -1,4 +1,8 @@
 <h1 align="center">
+   <img src='.github/assets/hubla.png' style="border-radius:50%" />
+</h1>
+
+<h1 align="center">
    Hubla Challenge
 </h1>
 
