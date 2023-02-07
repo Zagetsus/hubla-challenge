@@ -5,15 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "next lint",
     "test": "jest --passWithNoTests --detectOpenHandles",
     "test:clear": "jest --clearCache",
     "test:watch": "yarn test --watch",
     "test:staged": "yarn test --bail --findRelatedTests --passWithNoTests",
     "test:ci": "yarn test --coverage --detectOpenHandles",
-    "up:packs": "yarn ncu -u",
-    "prepare": "husky install"
+    "up:packs": "yarn ncu -u"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.3",
